@@ -3,23 +3,44 @@
 // You must write an algorithm that runs in O(n) time and without using the division operation.
 nums = [1,2,3,4]
 
-var productExceptSelf = function(nums) {
-    let newArr = [];
-    for(let i = 0 ; i < nums.length ; i++){
-        let product = 1 ;
-        for(let j = 0 ; j < nums.length ; j++){
-            if(j == i){
-                continue;
-            }else{
-                product *= nums[j];
-            }
-        }
-        newArr.push(product);
-    }
-    return newArr;
-};
-console.log(productExceptSelf(nums));
+// var productExceptSelf = function(nums) {
+//     let newArr = [];
+//     for(let i = 0 ; i < nums.length ; i++){
+//         let product = 1 ;
+//         for(let j = 0 ; j < nums.length ; j++){
+//             if(j == i){
+//                 continue;
+//             }else{
+//                 product *= nums[j];
+//             }
+//         }
+//         newArr.push(product);
+//     }
+//     return newArr;
+// };
+// console.log(productExceptSelf(nums));
 
+
+//better solution .
+var productExceptSelf1 = function(nums) {
+    const n = nums.length;
+    const output = new Array(n).fill(1);
+
+    let prefix = 1;
+    for (let i = 0; i < n; i++) {  
+        prefix *= nums[i];
+        output[i] = prefix
+    }
+
+    let suffix = 1;
+    for (let i = n - 1; i > 0 ; i--) {
+        output[i] *= suffix;
+        suffix *= nums[i]
+    }
+
+    return output
+}
+console.log(productExceptSelf1(nums));
 
 
  
