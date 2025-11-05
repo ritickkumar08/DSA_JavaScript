@@ -26,14 +26,18 @@ var productExceptSelf1 = function(nums) {
     const n = nums.length;
     const output = new Array(n).fill(1);
 
+    // we will first add the prefix product values to the output array.
     let prefix = 1;
-    for (let i = 0; i < n; i++) {  
+    for (let i = 0; i < n; i++) { 
+        output[i] = prefix //this holds the prefix product values
         prefix *= nums[i];
-        output[i] = prefix
     }
 
+    //now, as we have prefix product values inside or output array, we just have to find the suffix values for the
+    //elements of the nums array and then find their product with there respective indexed element in the output
+    //array.
     let suffix = 1;
-    for (let i = n - 1; i > 0 ; i--) {
+    for (let i = n - 1; i >= 0 ; i--) {
         output[i] *= suffix;
         suffix *= nums[i]
     }
