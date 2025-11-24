@@ -1,0 +1,40 @@
+Valid Parentheses (LeetCode 20)
+Min Stack (LeetCode 155)
+Implement Stack Using Queues (LeetCode 225)
+Implement Queue Using Stacks (LeetCode 232)
+Remove Outermost Parentheses (LeetCode 1021)
+
+
+These drill the fundamentals. If these feel hard, your stack basics aren’t stable.
+
+Level 2 — Monotonic Stack (the real stack problems)
+This is where developers fall apart if they don’t know patterns.
+You either master these or you’ll keep getting trapped later.
+
+Next Greater Element I (LeetCode 496)
+Next Greater Element II (LeetCode 503)
+Daily Temperatures (LeetCode 739)
+Stock Span Problem (classic)
+Next Smaller Element (GFG)
+
+These teach you the real point of stacks:
+processing sequences while maintaining a decreasing/increasing order.
+
+Level 3 — Hard but extremely common interview patterns
+If you reach here, your stack game is clean.
+Largest Rectangle in Histogram (LeetCode 84)
+Maximal Rectangle (LeetCode 85)
+Trapping Rain Water (LeetCode 42) – stack version
+132 Pattern (LeetCode 456)
+Score of Parentheses (LeetCode 856)
+
+These problems appear in FAANG-level interviews.
+If you can explain them clearly, you’re no longer a beginner.
+
+Level 4 — Real skill check (only if you want domination)
+Not required but excellent for mastery.
+Nearest Greater to Left/Right (GFG)
+Evaluate Reverse Polish Notation (LeetCode 150)
+Basic Calculator II (LeetCode 227)
+Decode String (LeetCode 394)
+Simplify Path (LeetCode 71)
