@@ -34,3 +34,5 @@ function printList(head){
     }
 }
 printList(head)
+
+console.log(head);
