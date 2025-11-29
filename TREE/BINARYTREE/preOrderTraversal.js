@@ -13,10 +13,17 @@ root.right.right = new TreeNode(5)
 root.right.left = new TreeNode(6)
 root.right.right = new TreeNode(7)
 
+function preorder(node) {
+    if(node == null){
+        return
+    }
 
-
-
-// console.log(root);
+    console.log(node.value);
+    preorder(node.left)
+    preorder(node.right)
+}
+//callin inorder traversal print function
+preorder(root)
 
 //Time Complexity --> O(n)
 //space Complexity --> height --> O(logn)

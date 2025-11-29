@@ -14,10 +14,17 @@ root.right.left = new TreeNode(6)
 root.right.right = new TreeNode(7)
 
 
+function height(node) {
+    if(node == null){
+        return 0
+    }
 
+    let leftHeight = height(node.left)
+    let rightHeight = height(node.right)
+    
+    let heightTree = Math.max(leftHeight , rightHeight) + 1
 
-// console.log(root);
+    return heightTree
+}
 
-//Time Complexity --> O(n)
-//space Complexity --> height --> O(logn)
-//worst case space complexity --> O(n)
+console.log(height(root));
