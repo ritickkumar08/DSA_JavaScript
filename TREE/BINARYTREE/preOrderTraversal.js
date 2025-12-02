@@ -28,3 +28,21 @@ preorder(root)
 //Time Complexity --> O(n)
 //space Complexity --> height --> O(logn)
 //worst case space complexity --> O(n)
+
+function iterativePreorder(node) {
+    if(node == null){
+        return
+    }
+
+    let st = [node]
+    let res = []
+
+    while(st.length){
+        let root = st.pop()
+        res.push(root.value)
+
+        if(node.right) st.push(node.right)
+        if(node.left) st.push(node.left)
+    }
+    return res
+}

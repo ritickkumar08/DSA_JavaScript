@@ -29,20 +29,20 @@ inorder(root)
 //space Complexity --> height --> O(logn)
 //worst case space complexity --> O(n)
 
-function iterativeInorder(node) {
-    if(node == null){
-        return
-    }
+function iterativeInorder(root) {
+    let st = [] , res = []
+    let curr = root
 
-    let st = [node]
-    let res = []
+    while(curr || st.length){
+        while(curr){
+            st.push(curr)
+            curr = curr.left
+        }
 
-    while(st.length){
-        let root = st.pop()
-        res.push(root.value)
-
-        if(node.right) st.push(node.right)
-        if(node.left) st.push(node.left)
+        curr = st.pop()
+        res.push(curr.value)
+        curr = curr.right
     }
     return res
 }
+console.log(iterativeInorder(root))
