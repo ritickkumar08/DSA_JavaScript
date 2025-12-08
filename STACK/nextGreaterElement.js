@@ -27,3 +27,30 @@ var nextGreaterElement = function(nums1, nums2) {
 const nums1 = [4,1,2]
 const nums2 = [1,3,4,2]
 console.log(nextGreaterElement(nums1,nums2));
+
+// ======================================================================================================================================
+
+var nextGreaterElement = function(nums1, nums2) {
+    let st = []
+    let map = new Map()
+
+    for(let i = nums2.length - 1 ; i >= 0 ; i--){
+        let current = nums2[i]
+        while(st.length > 0 && st.pop() <= current){
+            st.pop()
+        }
+        if(st.isEmpty()){
+            map.set(current, -1)
+        } else {
+            map.set(current, st.pop())
+        }
+        st.push(current)
+    }
+
+    let ans = []
+    for(let i = 0 ; i < nums1.length ; i++){
+        ans[i] = map.get(ans[i])
+    }
+
+    return ans
+};
