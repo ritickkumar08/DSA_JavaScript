@@ -12,7 +12,7 @@
 // - 1 is underlined in nums2 = [1,3,4,2]. The next greater element is 3.
 // - 2 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1.
 
-var nextGreaterElement = function(nums1, nums2) {
+var nextGreaterElement1 = function(nums1, nums2) {
     let ans = [];
     let index = 0
     
@@ -33,6 +33,57 @@ var nextGreaterElement = function(nums1, nums2) {
 
     return ans
 };
+
+
+class Stack{
+    constructor(){
+        this.stackArr = []
+    }
+
+    push(element){
+        this.stackArr.push(element)
+    }
+
+    pop(){
+        if(this.isEmpty()) return -1
+        return this.stackArr.pop()
+    }
+
+    top(){
+        if(this.isEmpty()) return -1
+        return this.stackArr[this.stackArr.length - 1]
+    }
+
+    isEmpty(){
+        return this.stackArr.length === 0
+    }
+
+    size(){
+        return this.stackArr.length
+    }
+}
+
+var nextGreaterElement = function(nums1, nums2) {
+    let st = new Stack()
+    let map = new Map()
+
+    for(let i = nums2.length - 1 ; i >= 0; i--){
+        let current = nums2[i]
+        while(!st.isEmpty() && st.top() <= current ){
+            st.pop()
+        }
+        
+        map.set(current, st.isEmpty() ? -1 : st.top())
+
+        st.push(current)
+    }
+
+    let ans = []
+    for(let num of nums1){
+        ans.push(map.get(num))
+    }
+    return ans
+}
 
 const nums1 = [4,1,2] 
 const nums2 = [1,3,4,2]
